@@ -1,8 +1,26 @@
 // Defining text characters for the empty and full hearts for you to use later.
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
+const errorModal = document.querySelector('#modal')
 
 // Your JavaScript code goes here!
+document.addEventListener('DOMContentLoaded', () => {
+  errorModal.className = "hidden"
+  const emptyHeartArray = document.querySelectorAll('.like-glyph') 
+  emptyHeartArray.forEach(oneLike => oneLike.addEventListener('click', renderLikeMessages))
+
+})
+
+
+function renderLikeMessages() {
+  mimicServerCall()
+  .then(res => console.log(res))
+  .catch(error => errorModal.classList.remove('hidden'))
+}
+
+
+
+
 
 
 
